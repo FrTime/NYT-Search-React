@@ -1,5 +1,6 @@
 {
   "name": "nytSearch",
+  "homepage": "https://FrTime.github.io/NYT-Search-React",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -11,7 +12,9 @@
     "seed": "node scripts/seedDB.js",
     "install": "cd client && yarn install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "",
   "license": "ISC",
