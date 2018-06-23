@@ -6,14 +6,14 @@ const Articles = props => (
       <div>
         <div className="card">
           <div className="card-header">
-            <a href={article.web_url}>{article.headline.main} ({article.pub_date.substring(0, 4)}</a>
+            <a href={article.web_url}>{article.headline.main} ({article.pub_date.substring(0, 4)})</a>
             
             <button
               type="button"
               className="btn-sm btn-success float-right"
-              articleName={article.headline.main}
-              articleDate={article.pub_date}
-              articleURL={article.web_url}
+              articlename={article.headline.main}
+              articledate={article.pub_date}
+              articleurl={article.web_url}
               onClick={props.saveArticle}
             >
               Save

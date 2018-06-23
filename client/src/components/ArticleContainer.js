@@ -18,7 +18,10 @@ const ArticleContainer = props => (
       <hr className="my-4" />
       <div className="row">
         <div className="col">
-          <SavedArticles savedArticles={props.savedArticles} />
+          <SavedArticles
+            deleteArticle={props.deleteArticle}
+            savedArticles={props.savedArticles}
+          />
         </div>
       </div>
     </div>

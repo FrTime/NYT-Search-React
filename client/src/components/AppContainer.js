@@ -29,9 +29,33 @@ class AppContainer extends Component {
   };
 
   saveArticle = event => {
-    const title = event.target.articleName;
-    const date = event.target.articleDate;
-    const url = event.target.articleURL;
+    console.log("saving article");
+    console.log(event.target);
+    const utitle = event.target.attributes.articlename.nodeValue;
+    const udate = event.target.attributes.articledate.nodeValue;
+    const uurl = event.target.attributes.articleurl.nodeValue;
+    console.log(utitle + ", " + udate + ", " + uurl);
+    API.saveArticle({
+      title: utitle,
+      date: udate,
+      url: uurl
+    })
+      .then(res => {
+        console.log(res);
+        this.getSavedArticles();
+
+      })
+      .catch(err => console.log(err));
+  };
+
+  deleteArticle = event => {
+    API.deleteArticle(event.target.attributes.articleid.nodeValue)
+      .then(res => {
+        console.log(res);
+        this.getSavedArticles();
+
+      })
+      .catch(err => console.log(err));
   };
 
   handleInputChange = event => {
@@ -84,6 +108,7 @@ class AppContainer extends Component {
           articles={this.state.results}
           saveArticle={this.saveArticle}
           savedArticles={this.state.savedArticles}
+          deleteArticle={this.deleteArticle}
         />
       </div>
     );

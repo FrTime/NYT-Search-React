@@ -11,7 +11,13 @@ mongoose.connect(
   }
 );
 
-const articleSeed = [];
+const articleSeed = [
+  {
+    title: "Testing",
+    date: "2222",
+    url: "Test City, USA"
+  }
+];
 
 db.Article.remove({})
   .then(() => db.Article.collection.insertMany(articleSeed))
